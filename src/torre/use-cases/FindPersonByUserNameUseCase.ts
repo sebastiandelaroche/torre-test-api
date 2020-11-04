@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UseCase } from '@core/UseCase';
 import { PersonBioDto } from '../dtos/PersonBioDto';
-import { TorreGateway } from '../gateways/TorreGateway';
+import { TorreBioGateway } from '../gateways/TorreBioGateway';
 import { transformPersonBio } from '../utils/transforms/transformPersonBio';
 import { handleError } from '../utils/handleError';
 
@@ -9,11 +9,11 @@ import { handleError } from '../utils/handleError';
 export class FindPersonByUserNameUseCase implements UseCase<string, Promise<PersonBioDto>> {
 
   constructor(
-    private readonly torreGateway: TorreGateway
+    private readonly torreBioGateway: TorreBioGateway
   ) { }
 
   execute(username?: string): Promise<PersonBioDto> {
-    return this.torreGateway
+    return this.torreBioGateway
       .findPersonByUserName(username)
       .then(transformPersonBio)
       .catch(handleError);

@@ -23,6 +23,10 @@ class Compensation {
 export class OpportunityDto {
   @IsString()
   @ApiProperty()
+  id: string;
+
+  @IsString()
+  @ApiProperty()
   objective: string;
 
   @IsString()
@@ -51,7 +55,7 @@ export class OpportunityDto {
 
   @Type(() => Compensation)
   @IsArray()
-  @ApiProperty({ isArray: true, type: Compensation })
+  @ApiProperty({ type: Compensation })
   compensation: Compensation;
 
   @IsArray()
