@@ -31,6 +31,8 @@ async function bootstrap() {
 
   app.use(bodyParser.json());
 
+  app.enableCors({ origin: '*' });
+
   const options = new DocumentBuilder()
     .setTitle('Torre Test Api')
     .setDescription('torre-test-api')
