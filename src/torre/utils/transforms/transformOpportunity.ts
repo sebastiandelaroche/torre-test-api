@@ -8,6 +8,7 @@ const transformCompensation = R.applySpec({
 });
 
 export const transformOpportunities = R.applySpec({
+  id: R.prop('id'),
   objective: R.prop('objective'),
   type: R.prop('type'),
   organizations: R.compose(

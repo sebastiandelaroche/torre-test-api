@@ -1,6 +1,6 @@
 import { HttpService, Injectable } from '@nestjs/common';
 import * as R from 'ramda';
-import { GatewayPersonBioResponseDto } from '../dtos/GatewayPersonBioResponseDto';
+import { GatewayOpportunityResponseDto } from '../dtos/GatewayOpportunityResponseDto';
 
 @Injectable()
 export class TorreGateway {
@@ -11,8 +11,8 @@ export class TorreGateway {
     private readonly httpService: HttpService
   ) { }
 
-  findPersonByUserName(username: string): Promise<GatewayPersonBioResponseDto> {
-    const url = `${this.baseUrl}/api/bios/${username}`;
+  findOpportunityById(id: string): Promise<GatewayOpportunityResponseDto> {
+    const url = `${this.baseUrl}/api/opportunities/${id}`;
 
     return this.httpService
       .get(url)
