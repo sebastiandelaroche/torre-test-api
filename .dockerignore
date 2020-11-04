@@ -1,0 +1,15 @@
+.cache
+.DS_Store
+.git
+.github
+.idea
+.service-account.json
+.vscode
+fontconfig/
+node_modules/
+service-account.json
+yarn-debug.log*
+yarn-error.log*
+/charts
+/.env*
+!/.env.example
