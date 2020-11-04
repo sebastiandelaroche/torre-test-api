@@ -1,0 +1,13 @@
+runtime: nodejs12
+
+env_variables:
+  PORT: 8080
+  TORRE_URL: https://torre.co
+  TORRE_BIO_URL: https://torre.bio
+  TORRE_SEARCH_URL: https://search.torre.co
+
+handlers:
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
