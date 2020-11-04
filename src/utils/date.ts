@@ -1,5 +1,4 @@
 import * as moment from 'moment';
-import * as momentTimeZone from 'moment-timezone';
 import * as R from 'ramda';
 
 const defaultFormatDate = 'YYYY-MM-DD';
@@ -24,14 +23,3 @@ export const format = (date: Date, format = defaultFormatDate) =>
 
 export const formatCurry = R.curry((format, date: Date) =>
   moment(date, 'DD/MM/YYYY', true).format(format));
-
-export const toUtc = (date) => {
-  if (date) {
-    if (typeof date === 'string' && !date.includes('T')) {
-      // There is no timezone on this string, so assume it's already in America/New_York time
-      return momentTimeZone.tz(date, 'America/New_York').format('YYYY-MM-DD HH:mm:ss');
-    }
-    return momentTimeZone(date).tz('America/New_York').format('YYYY-MM-DD HH:mm:ss');
-  }
-  return momentTimeZone.tz('America/New_York').format('YYYY-MM-DD HH:mm:ss');
-};
